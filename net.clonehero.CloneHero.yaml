@@ -27,16 +27,16 @@ modules:
        - install -Dpm0755 -t /app/bin clonehero.sh
     sources:
       - type: extra-data
-        filename: CloneHero-linux.tar.xz
-        url: https://github.com/clonehero-game/releases/releases/download/V1.0.0.4080/CloneHero-linux.tar.xz
-        size: 319658004
-        sha256: 6162d5fb0810f517ca45249687fc743cc8c1ead140e18a476fd5ad60e3a06592
+        filename: Linux.x86_64-Standalone.tar
+        url: https://github.com/clonehero-game/releases/releases/download/v1.1.0.6142-final/Linux.x86_64-Standalone.tar
+        size: 1172653056
+        sha256: 572971d93092283c5d0d52006a26b52ab8e8fb128dcfb42a3496de26c8aa231d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/clonehero-game/releases/releases/latest
           tag-query: .tag_name
-          version-query: .tag_name | sub("^V"; "")
-          url-query: '"https://github.com/clonehero-game/releases/releases/download/V" + $tag + "/CloneHero-linux.tar.xz"'
+          version-query: .tag_name | sub("^v"; "")
+          url-query: '"https://github.com/clonehero-game/releases/releases/download/v" + $tag + "/Linux.x86_64-Standalone.tar"'
       - type: file
         path: net.clonehero.CloneHero.desktop
       - type: file
@@ -47,10 +47,10 @@ modules:
         dest-filename: apply_extra
         commands:
           - |
-            mkdir -p /app/extra/
-            tar xf CloneHero-linux.tar.xz -C /app/extra/
+            mkdir -p /app/extra/clonehero-linux
+            tar xf Linux.x86_64-Standalone.tar -C /app/extra/clonehero-linux/ --strip-components=1
             chmod +x /app/extra/clonehero-linux/clonehero
-            rm -rf CloneHero-linux.tar.xz
+            rm -rf Linux.x86_64-Standalone.tar
       - type: script
         dest-filename: clonehero.sh
         commands:

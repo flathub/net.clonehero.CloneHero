@@ -45,6 +45,9 @@
   </screenshots>
 
   <releases>
+    <release version="v1.1.0.6142-final" date="2026-06-01">
+      <url type="details">https://github.com/clonehero-game/releases/releases/tag/v1.1.0.6142-final</url>
+    </release>
     <release version="V1.0.0.4080" date="2023-08-13">
       <url type="details">https://github.com/clonehero-game/releases/tag/V1.0.0.4080</url>
     </release>
